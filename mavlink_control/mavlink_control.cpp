@@ -32,6 +32,7 @@ int set_mode_send()
 	cmd.param6 = 0;
 	cmd.param7 = 0;
     mavlink_msg_command_long_encode(sysid, compid_all, &msg, &cmd);
+
 	int len = write_serial(msg);
 }
 int
@@ -84,7 +85,8 @@ read_message()
 			if(message.msgid == MAVLINK_MSG_ID_HEARTBEAT){
 				mavlink_heartbeat_t heartbeat;
 				mavlink_msg_heartbeat_decode(&message, &heartbeat);
-
+                printf("system_id : %d\n",  message.sysid);
+                printf("component_id : %d\n",  message.compid);
 				printf("   custom_mode: %d\n", heartbeat.custom_mode);
 				printf("   type: %d\n", heartbeat.type);
 				printf("   autopilot: %d\n", heartbeat.autopilot);
