@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 set (CMAKE_CXX_STANDARD 11)
 set(example true CACHE BOOL "Build Example")
+set(use_vrpn true CACHE BOOL "Motion Capture System")
 
 
 
@@ -29,11 +30,14 @@ target_link_libraries(mavlink_control      serial_port)
 
 if(example)
 add_subdirectory(example)
-
-else()
-
-
 endif()
+
+if(use_vrpn)
+add_subdirectory(vrpn_test)
+endif()
+
+
+
 add_executable(${PROJECT_NAME} "main.cpp"    )
 target_link_libraries(
     ${PROJECT_NAME}

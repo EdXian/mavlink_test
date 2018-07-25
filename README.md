@@ -9,8 +9,10 @@ version : 1.0
 This example had been tested on Pixhawk(v 1.7.3).
 
 ## example
-
-
+The default baudrate is 921600
+1. imu - test the imu of pixhawk.
+2. flow 
+3. sys
 
 
 ## Importing mavlink to STM32 board on mbed OS
@@ -24,6 +26,7 @@ This example had been tested on Pixhawk(v 1.7.3).
 ```
 	cd build 
 	./mavlink_test -b 921600 -d /dev/ttyACM0
+
 ```
 5. The terminal will show the following output.
 ```
