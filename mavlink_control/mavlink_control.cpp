@@ -95,6 +95,19 @@ read_message()
 				printf("   mavlink_version: %d\n", heartbeat.mavlink_version);
 				received = true;
 			}
+			if(message.msgid == MAVLINK_MSG_ID_ATTITUDE){
+
+			mavlink_attitude_t att;
+			mavlink_msg_attitude_decode(&message,&att);
+			printf("time = %f\n",att.time_boot_ms/1000.0);
+			printf("roll = %f\n",att.roll );
+			printf("yaw = %f\n" , att.yaw);
+			printf("pitch = %f\n", att.pitch);
+			received = true;
+			}
+
+
+
 		}
 		// end: if read message
 

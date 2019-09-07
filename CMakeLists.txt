@@ -32,9 +32,6 @@ if(example)
 add_subdirectory(example)
 endif()
 
-if(use_vrpn)
-add_subdirectory(vrpn_test)
-endif()
 
 
 

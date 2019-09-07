@@ -6,7 +6,7 @@
 int main(int argc, char **argv){
 
     char *uart_name = (char*)"/dev/ttyACM0";
-    int baudrate = 921600;
+    int baudrate = 115200;
 
     bool failure;
     std::cout<<"mavlink_test"<<std::endl;
@@ -33,9 +33,22 @@ int main(int argc, char **argv){
     signal(SIGINT, quit_handler);
 
 
-    std::cout<<"received data from mavlink: "<<std::endl;
+
+	while(true){
+  std::cout<<"received data from mavlink: "<<std::endl;
     std::cout<<"=========================== "<<std::endl;
     read_message();
+}
+  
+
+
+
+
+
+
+
+
+
 
     std::cout<<"SETTING TO OFFBOARD\n"<<std::endl;
     write_toggle_offboard(1.0);
